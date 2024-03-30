@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyResume</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:  #222; /* Darker shade of black */
+    color: #fff; /* Text color */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-split, .right-split {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.left-split {
+    background-color: #222; /* Darker shade of light black */
+}
+
+button {
+    background-color: #e74141; /* Red color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 20px 30px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+button img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.button-text {
+    display: flex;
+    align-items: center;
+}
+.message-box {
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White text */
+    padding: 100px;
+    border-radius: 20px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.qualification {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: transform 1s;
+}
+
+.message-box .page {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.message-box .page.active {
+    display: block;
+    animation: slideWiper 1s forwards;
+}
+
+@keyframes slideWiper {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.message-box-right {
+    background-color: #000000; /* Dark gray */
+    color: #ffffff; /* White text */
+    padding: 100px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.degree {
+    max-width: 600px;
+    margin: auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+
+  
+</style>
+</head>
+<body>
+    <center><h2>MyResume</h2></center>
+    <div class="container">
+        <div class="left-split">
+            <div class="button-container">
+                <button>
+                    <img src="mortarboard.png" alt="Education Logo">
+                    <span class="button-text">EDUCATION</span>
+                </button>
+            </div>
+            <div class="message-box">
+                <div class="page active">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2020 - 2024</h2>
+                        <p>Bachelor Of Technology<br>
+                          Degree: Computer Science and Engineering With Spec in Data Science<br>
+                          Percetage: 72.4%<br>
+                          Campus: Vellore Institute Of Technology<br>
+                          Location: Vellore, Tamil Nadu, 632014
+                        </p>
+                      </div>
+                </p>
+                </div>
+                <div class="page">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2019 - 2020</h2>
+                        <p>Higher Secondary Education<br>
+                          Education: HSC-Higher Secondary School Certificate<br>
+                          Campus: Government Boys Higher Secondary School ,Pudupalayam<br>
+                          Percetage: 83.6%<br>
+                          Location: Tiruvannamalai, Tamil Nadu, 606705.
+                        </p>
+                      </div>
+                </div>
+                <div class="page">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2017 - 2018</h2>
+                        <p>Secondary Education<br>
+                          Education: SSLC - Secondary School Certificate<br>
+                          Campus: Government Boys Higher Secondary School ,Pudupalayam<br>
+                          Percetage: 84.8%<br>
+                          Location: Tiruvannamalai, Tamil Nadu, 606705.
+                        </p>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-split">
+            <div class="button-container">
+                <button>
+                    <img src="future.png" alt="Skills Logo">
+                    <span class="button-text">SKILLS</span>
+                </button>
+            </div>
+            <div class="message-box-right">
+                <p>This is a message box for education details.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.message-box .page');
+        let currentPage = 0;
+
+        function showPage(pageIndex) {
+            pages.forEach((page, index) => {
+                if (index === pageIndex) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage(currentPage);
+
+            const messageBox = document.querySelector('.message-box');
+
+            messageBox.addEventListener('click', function() {
+                currentPage = (currentPage + 1) % pages.length;
+                showPage(currentPage);
+            });
+        });
+    </script>
+</body>
+</html>

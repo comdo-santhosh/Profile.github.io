@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111111da; /* Darker shade of black */
+    color: #fff; /* Text color */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-split, .right-split {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.left-split {
+    background-color: #222; /* Darker shade of light black */
+}
+
+.bio-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-data h2 {
+    color: #fff; /* White text color */
+    text-align: center; /* Center the title */
+}
+
+.bio-data p {
+    color: #fff; /* White text color */
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.icon img {
+    width: 20px; /* Adjust the icon size as needed */
+    height: auto;
+    filter: invert(100%); /* Red color for icons */
+}
+
+.nav-button {
+    padding: 10px 20px;
+    background-color: #333; /* Dark gray background color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Add margin at the top */
+    display: inline-block; /* Display as inline-block element */
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="left-split">
+        <div class="bio-data">
+            <h2>About Me</h2>
+            <p><span class="icon"><img src="date.png" alt="Date of Birth Icon"></span><strong>Date of Birth : </strong> November 20, 2003</p>
+            <p><span class="icon"><img src="flags.png" alt="Nationality Icon"></span><strong>Nationality: </strong>  Indian</p>
+            <p><span class="icon"><img src="telephone-call.png" alt="Phone Icon"></span><strong>Phone: </strong>  +91-9087093403</p>
+            <p><span class="icon"><img src="mail.png" alt="Email Icon"></span><strong>Email: </strong>  sanss2620818@gmail.com</p>
+            <p><span class="icon"><img src="pin.png" alt="Address Icon"></span><strong>Address: </strong>  20 New St, Tiruvannamalai, TamilNadu</p>
+            <p><span class="icon"><img src="language.png" alt="Languages Icon"></span><strong>Languages: </strong>  Tamil , English</p>
+            <p><span class="icon"><img src="programming.png" alt="Skills Icon"></span><strong>Skills: </strong>  HTML, CSS, Java, etc.</p>
+        </div>
+    </div>
+    <div class="left-split">
+        <!-- Embed Google Maps here (example) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26634.352356934636!2d78.86149774731436!3d12.360284356866693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bacefa41da46ef1%3A0xdf0b507518563685!2sPudupalayam%2C%20Tamil%20Nadu%20606705!5e0!3m2!1sen!2sin!4v1711714318439!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+</body>

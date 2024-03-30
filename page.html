@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* CSS styles */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 80px auto; /* Adjust top margin to account for the sticky navbar */
+            padding: 0 20px;
+        }
+        .message-box {
+            background-color: #333; /* Dark gray */
+            color: #fff; /* White text */
+            padding: 100px;
+            border-radius: 70px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            width: 350px;
+        }
+        .message-box .page.active {
+            display: block;
+            animation: slideWiper 1s forwards;
+        }
+        .message-box .page {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Animation */
+        @keyframes slideWiper {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .page-indicator {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .indicator-button {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #e74141; /* Red color */
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .indicator-button.active {
+            background-color: #fff; /* White color for active button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message-box">
+            <div class="page active">
+                <!-- Content for page 1 -->
+                <h2>Page 1</h2>
+                <p>This is the content of page 1.</p>
+            </div>
+            <div class="page">
+                <!-- Content for page 2 -->
+                <h2>Page 2</h2>
+                <p>This is the content of page 2.</p>
+            </div>
+            <div class="page">
+                <!-- Content for page 3 -->
+                <h2>Page 3</h2>
+                <p>This is the content of page 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page indicators -->
+    <div class="page-indicator">
+        <span class="indicator-button active" onclick="showPage(0)"></span>
+        <span class="indicator-button" onclick="showPage(1)"></span>
+        <span class="indicator-button" onclick="showPage(2)"></span>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        const pages = document.querySelectorAll('.message-box .page');
+        let currentPage = 0;
+
+        function showPage(pageIndex) {
+            pages.forEach((page, index) => {
+                if (index === pageIndex) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+            updateIndicators(pageIndex);
+        }
+
+        function updateIndicators(activeIndex) {
+            const indicators = document.querySelectorAll('.indicator-button');
+            indicators.forEach((indicator, index) => {
+                if (index === activeIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage(currentPage);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #0f0f0f;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            background-color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 80px auto; /* Adjust top margin to account for the sticky navbar */
+            padding: 0 20px;
+            display: flex;
+        }
+        .left-content {
+            flex: 1;
+        }
+        .right-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .name-designation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .resume-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        /* Add more styles as needed */
+        @keyframes colorChange {
+            0% { color:whitesmoke; }
+            20% { color:white; }
+            80% { color: red; }
+            100% { color: whitesmoke; } 
+        }
+        .color-change {
+            animation: colorChange 2s ease-in-out infinite;
+        }
+
+
+        .role {
+            margin-bottom: 20px;
+        }
+        .role,
+        .description {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .description {
+            max-width: 600px;
+            margin: 10px auto;
+            padding: 0 10px;
+            text-align: right;
+        }
+        .resume-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .resume-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#name" style="font-size: 32px; color: red; font-family: 'Times New Roman', serif;">SANTHOSH<span style="color: white;">KUMAR</span></a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="left-content">
+            <img src="profile4.jpg" alt="Santhosh Kumar Photo"  style="max-width:100%;">
+        </div>
+        <div class="right-content">
+            <br><h1>  Hello! There  I'm</h1>
+            <h3 class="color-change">Web Developer</h3>
+            <div class="name-designation">
+                <p  class="description" >I am pursuing a college degree in B. Tech - CSE With Specialization in Data Science at 
+                    Vellore Institute of Technology(VIT). I am excited about the future and the endless possibilities 
+                    that await me. As a college student, 
+                    I am constantly evolving, discovering my passions, and working towards my goals...</p>
+            </div>
+            <a href="Santhoshkumar_Resume.pdf" class="resume-button" download>Download Resume</a>
+        </div>
+    </div>
+</body>
+</html>

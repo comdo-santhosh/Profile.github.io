@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #0f0f0f;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            background-color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 80px auto; /* Adjust top margin to account for the sticky navbar */
+            padding: 0 20px;
+            display: flex;
+        }
+        .left-content {
+            flex: 1;
+            width: 900px;
+        }
+        .right-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .name-designation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .resume-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        /* Animation */
+        @keyframes colorChange {
+            0% { color: whitesmoke; }
+            20% { color: white; }
+            80% { color: red; }
+            100% { color: whitesmoke; }
+        }
+        .color-change {
+            animation: colorChange 2s ease-in-out infinite;
+        }
+        .role {
+            margin-bottom: 20px;
+        }
+        .role,
+        .description {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .description {
+            max-width: 600px;
+            margin: 10px auto;
+            padding: 0 10px;
+            text-align: right;
+        }
+        .resume-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .resume-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .left-split, .right-split {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .left-split-about{
+            background-color: #333; /* Darker shade of light black */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px
+        }
+        .right-split-about{
+            background-color: #333; /* Darker shade of light black */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px
+        }
+        
+        .bio-data {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bio-data h2 {
+            color: #fff; /* White text color */
+            text-align: center; /* Center the title */
+        }
+        
+        .bio-data p {
+            color: #fff; /* White text color */
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            margin-right: 10px;
+        }
+        
+        .icon img {
+            width: 20px; /* Adjust the icon size as needed */
+            height: auto;
+            filter: invert(100%); /* Red color for icons */
+        }
+
+
+
+        .degree {
+            max-width: 600px;
+            margin: auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          .message-box-right {
+            background-color: #000000; /* Dark gray */
+            color: #ffffff; /* White text */
+            padding: 100px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        
+        button {
+            background-color: #e74141; /* Red color */
+            color: #fff; /* White text */
+            border: none;
+            padding: 20px 30px;
+            margin: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+button img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.left-split {
+    background-color: #222; /* Darker shade of light black */
+}
+
+.right-split {
+    background-color: #222; /* Darker shade of light black */
+}
+.left-split, .right-split {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    height: 350px;
+}
+
+
+
+.message-box {
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White text */
+    padding: 100px;
+    border-radius: 40px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+}
+
+
+.message-box .page.active {
+    display: block;
+    animation: slideWiper 1s forwards;
+}
+
+@keyframes slideWiper {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.message-box .page {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill {
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-weight: bold;
+}
+
+.stars {
+    font-size: 24px; /* Adjust the size of stars */
+}
+
+.star {
+    color: red; /* Red star color */
+}
+
+.email-button {
+    background-color: red; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 20px 20px;
+    text-decoration: none;
+    border-radius: 500px;
+    margin-bottom: 40px; /* Add margin below button */
+    display: inline-block; /* Ensure button is inline */
+}
+.social-icon {
+    margin-right: 20px; /* Add spacing between icons */
+}
+
+
+#contact {
+    background-color: #111;
+    margin-left: 70px; /* Adjust as needed */
+    margin-right: 70px; /* Adjust as needed */
+    margin-bottom: 30px;
+}
+
+/* Optional: Center align the content within the contact section */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+     
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://comdo-santhosh.github.io/Myportfolio.github.io/" target="_blank" style="font-size: 32px; color: red; font-family: 'Times New Roman', serif;">SANTHOSH<span style="color: white;">KUMAR</span><span style="color: red;"> S</span></a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div  class="container" id ="home">
+        <div class="left-content">
+            <img src="profile4.jpg" alt="Santhosh Kumar Photo" style="max-width: 100%;">
+        </div>
+        <div class="right-content"><br>
+            <h1><span style="color: red;">Hello!</span><span style="color: white;"> There I'm</span></h1>            
+            <h3 class="color-change">Web Developer</h3>
+            <div class="name-designation">
+                <p class="description">I am pursuing a college degree in B. Tech - CSE With Specialization in Data Science at 
+                    Vellore Institute of Technology(VIT). I am excited about the future and the endless possibilities 
+                    that await me. As a college student, 
+                    I am constantly evolving, discovering my passions, and working towards my goals...</p>
+            </div>
+            <a href="Santhoshkumar_Resume.pdf" class="resume-button" download style="color: red;">Download Resume</a>
+        </div>
+    </div>
+    <div id = "about">
+    </div>
+    <center><h2><p><span style="color: red;" >About</span><span style="color: white;">Me</span></p></h2></center>
+    <div class="container">
+        <div class="left-split-about">
+            <div class="bio-data">
+               
+                <p><span class="icon"><img src="date.png" alt="Date of Birth Icon" ></span><strong style="color : red">Date of Birth : </strong> November 20, 2003</p>
+                <p><span class="icon"><img src="flags.png" alt="Nationality Icon"></span><strong style="color : red">Nationality: </strong>  Indian</p>
+                <p><span class="icon"><img src="telephone-call.png" alt="Phone Icon"></span><strong style="color : red">Phone: </strong>  +91-9087093403</p>
+                <p><span class="icon"><img src="mail.png" alt="Email Icon"></span><strong style="color : red">Email: </strong>  sanss2620818@gmail.com</p>
+                <p><span class="icon"><img src="pin.png" alt="Address Icon"></span><strong style="color : red">Address: </strong>  20 New St, Tiruvannamalai, TamilNadu</p>
+                <p><span class="icon"><img src="language.png" alt="Languages Icon"></span><strong style="color : red">Languages: </strong>  Tamil , English</p>
+                <p><span class="icon"><img src="programming.png" alt="Skills Icon"></span><strong style="color : red">Skills: </strong>  HTML, CSS, Java, etc.</p>
+            </div>
+        </div>
+        <div class="right-split-about">
+            <!-- Embed Google Maps here (example) -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26634.352356934636!2d78.86149774731436!3d12.360284356866693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bacefa41da46ef1%3A0xdf0b507518563685!2sPudupalayam%2C%20Tamil%20Nadu%20606705!5e0!3m2!1sen!2sin!4v1711714318439!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+    </div>
+
+
+    <div id = "resume">
+
+    </div>
+    <center > <h2><p><span style="color: red;">MyRe</span><span style="color: white;">sume</span></p></h2></center>
+    <div class="container" >
+        <div class="left-split">
+            <div class="button-container"> 
+                <button>
+                    <img src="mortarboard.png" alt="Education Logo">
+                    <span class="button-text">EDUCATION</span>
+                </button>
+            </div>
+            <div class="message-box" id="resume">
+                <div class="page active">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2020 - 2024</h2>
+                        <p>Bachelor Of Technology<br>
+                          Degree: Computer Science and Engineering With Spec in Data Science<br>
+                          Percetage: 72.4%<br>
+                          Campus: Vellore Institute Of Technology<br>
+                          Location: Vellore, Tamil Nadu, 632014
+                        </p>
+                      </div>
+                </p>
+                </div>
+                <div class="page">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2019 - 2020</h2>
+                        <p>Higher Secondary Education<br>
+                          Education: HSC-Higher Secondary School Certificate<br>
+                          Campus: Government Boys Higher Secondary School ,Pudupalayam<br>
+                          Percetage: 83.6%<br>
+                          Location: Tiruvannamalai, Tamil Nadu, 606705.
+                        </p>
+                      </div>
+                </div>
+                <div class="page">
+                    <div class="degree">
+                        <h2 style="color: rgb(255, 0, 0);">2017 - 2018</h2>
+                        <p>Secondary Education<br>
+                          Education: SSLC - Secondary School Certificate<br>
+                          Campus: Government Boys Higher Secondary School ,Pudupalayam<br>
+                          Percetage: 84.8%<br>
+                          Location: Tiruvannamalai, Tamil Nadu, 606705.
+                        </p>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-split">
+            <div class="button-container">
+                <button>
+                    <img src="future.png" alt="Skills Logo">
+                    <span class="button-text">SKILLS</span>
+                </button>
+            </div>
+             <!-- HTML code -->
+    <div class="skills">
+        <div class="skill">
+            <span class="skill-name">JAVA</span>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9734;</span> <!-- Empty star -->
+            </div>
+        </div>
+        <div class="skill">
+            <span class="skill-name">HTML</span>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+            </div>
+        </div>
+        <div class="skill">
+            <span class="skill-name">CSS</span>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9734;</span> <!-- Empty star -->
+            </div>
+        </div>
+        <div class="skill">
+            <span class="skill-name">SQL</span>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9733;</span> <!-- Filled star -->
+                <span class="star">&#9734;</span> <!-- Empty star -->
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.message-box .page');
+        let currentPage = 0;
+
+        function showPage(pageIndex) {
+            pages.forEach((page, index) => {
+                if (index === pageIndex) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage(currentPage);
+
+            const messageBox = document.querySelector('.message-box');
+
+            messageBox.addEventListener('click', function() {
+                currentPage = (currentPage + 1) % pages.length;
+                showPage(currentPage);
+            });
+        });
+    </script>
+    <center>
+    <h1>
+        <a style="font-size: 32px; color: red; font-family: 'Times New Roman', serif;">Cont<span style="color: white;">act</span></span></a>
+    </h1>
+     </center>
+   <center  >
+    <div  id="contact">
+        <!-- Existing content here -->
+        
+        <br><br>
+        <br>
+        <a href="mailto:sanss2620818@gmail.com" class="email-button">Email Me</a>
+        <br>
+
+            <table>
+                <tr>
+                    <!-- Adjust spacing as needed -->
+                    <td colspan="7"></td>
+                    <td>
+                        <a href="https://www.linkedin.com/in/santhoshkumar-s-8356011b9/" class="social-icon" target="_blank">
+                            <img src="linkedIn.png" alt="LinkedIn" width="50px" style="border-radius: 40px;">
+                        </a>
+                    </td>
+                    <!-- Adjust spacing as needed -->
+                    <td colspan="3"></td>
+                    <td>
+                        <a href="https://github.com/comdo-santhosh" class="social-icon" target="_blank">
+                            <img src="git.png" alt="GitHub" width="50px">
+                        </a>
+                    </td>
+                    <!-- Adjust spacing as needed -->
+                    <td colspan="3"></td>
+                    <td>
+                        <a href="https://wa.me/9087093403" class="social-icon" target="_blank">
+                            <img src="Wp.png" alt="WhatsApp Logo" width="49px" style="border-radius: 21px;">
+                        </a>
+                    </td>
+                    <!-- Adjust spacing as needed -->
+                    <td colspan="3"></td>
+                    <td>
+                        <a href="https://t.me/HardikSanthosh" class="social-icon" target="_blank">
+                            <img src="tel.png" alt="Telegram" width="60px">
+                        </a>
+                    </td>
+                    <!-- Adjust spacing as needed -->
+                    <td colspan="7"></td>
+                </tr>
+            </table>
+            <footer style="background-color: #111; color: #ffffff81; text-align: center; padding: 20px;">
+                &copy; 2024 Santhoshkumar. All rights reserved.
+            </footer>
+        </div>
+    </div>
+</center>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    targetSection.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 50); // Adjust the delay as needed
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

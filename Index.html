@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #0f0f0f;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            background-color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 80px auto; /* Adjust top margin to account for the sticky navbar */
+            padding: 0 20px;
+        }
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .name {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#name" style="font-size: 32px; color: red; font-family: 'Times New Roman', serif;">SANTHOSH<span style="color: white;">KUMAR</span></a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div id="home" class="content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>This is a simple portfolio template.</p>
+        </div>
+        <div id="about" class="content">
+            <h2>About Me</h2>
+            <p>I am a web developer.</p>
+        </div>
+        <div id="resume" class="content">
+            <h2>Resume</h2>
+            <p>My resume will go here.</p>
+        </div>
+        <div id="projects" class="content">
+            <h2>Projects</h2>
+            <p>Check out my projects.</p>
+        </div>
+        <div id="contact" class="content">
+            <h2>Contact Me</h2>
+            <p>You can contact me at example@email.com.</p>
+        </div>
+    </div>
+</body>
+</html>
